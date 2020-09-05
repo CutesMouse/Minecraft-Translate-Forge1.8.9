@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mtr",
+  "name": "MouseTranslater",
+  "description": "Google Translate Mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["CutesMouse"],
+  "credits": "Google script",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
