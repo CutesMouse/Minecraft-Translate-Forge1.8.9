@@ -3,6 +3,8 @@ package com.cutesmouse.mtr;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiChat;
+import net.minecraft.client.resources.FallbackResourceManager;
+import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
@@ -12,11 +14,13 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 @Mod(modid = MTranslate.MOD_ID,version = MTranslate.VERSION)
@@ -26,8 +30,11 @@ public class MTranslate {
     public static MTranslate instance;
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent e) {
-
+    public void completeLoading(FMLLoadCompleteEvent e) {
+        TranslateRender obj = new TranslateRender();
+        Minecraft.getMinecraft().fontRendererObj = obj;
+        ((IReloadableResourceManager) Minecraft.getMinecraft().getResourceManager())
+                .registerReloadListener(obj);
     }
     @Mod.EventHandler
     public void preInt(FMLPreInitializationEvent e) {
@@ -43,10 +50,10 @@ public class MTranslate {
     public static boolean OPEN = false;
     public static boolean OPEN_TEXT = false;
     public static boolean COLOR_CODE = true;
-    @SubscribeEvent
+    /*@SubscribeEvent
     public void onRenderItem(ItemTooltipEvent e) {
         if (OPEN) Translater.GetTranslate(e.toolTip);
-    }
+    }*/
     private final static Color G = new Color(175, 252, 89, 255);
     private final static Color R = new Color(255, 116, 116, 255);
     @SubscribeEvent
@@ -59,8 +66,8 @@ public class MTranslate {
         int b2_z = Config.Instance.getInt("layout","color_z",195);
         int b3_x = Config.Instance.getInt("layout","refresh_x",350);
         int b3_z = Config.Instance.getInt("layout","refresh_z",172);
-        int b5_x = Config.Instance.getInt("layout","textboard_toggle_x",350);
-        int b5_z = Config.Instance.getInt("layout","textboard_toggle_z",149);
+        /*int b5_x = Config.Instance.getInt("layout","textboard_toggle_x",350);
+        int b5_z = Config.Instance.getInt("layout","textboard_toggle_z",149);*/
         if (!(e.gui instanceof GuiChat)) return;
         final GuiButton button = new GuiButton(10001,b1_x, b1_z, 80, 20, "\u7FFB\u8B6F\u6A21\u5F0F: " +(OPEN ? "\u958B" : "\u95DC")) {
             @Override
@@ -88,13 +95,14 @@ public class MTranslate {
             @Override
             public void mouseReleased(int mouseX, int mouseY) {
                 questIfKeyNull();
-                Translater.TRANSLATE_TABLE = new HashMap<String, String>();
+                Translater.TRANSLATE_TABLE = new HashMap<>();
+                Translater.recentTasks = new ArrayList<>();
             }
         };
         button3.packedFGColour = new Color(255, 223, 142).hashCode();
         e.buttonList.add(button3);
 
-        final GuiButton button5 = new GuiButton(10005,b5_x, b5_z, 80, 20, "\u804A\u5929\u5BA4\u7FFB\u8B6F: " +(OPEN_TEXT ? "\u958B" : "\u95DC")) {
+        /*final GuiButton button5 = new GuiButton(10005,b5_x, b5_z, 80, 20, "\u804A\u5929\u5BA4\u7FFB\u8B6F: " +(OPEN_TEXT ? "\u958B" : "\u95DC")) {
             @Override
             public void mouseReleased(int mouseX, int mouseY) {
                 questIfKeyNull();
@@ -104,7 +112,7 @@ public class MTranslate {
             }
         };
         button5.packedFGColour = (OPEN_TEXT ? G : R).hashCode();
-        e.buttonList.add(button5);
+        e.buttonList.add(button5);*/
         //
     }
     private void questIfKeyNull() {
@@ -115,7 +123,7 @@ public class MTranslate {
     public static String getKeyURL() {
         return Config.Instance.getString("option","keyURL");
     }
-    @SubscribeEvent
+    /*@SubscribeEvent
     public void receiveMSG(ClientChatReceivedEvent e) {
         if (!OPEN_TEXT) return;
         if (getKeyURL().equals("0")) return;
@@ -127,11 +135,11 @@ public class MTranslate {
                 TextBoard.appendText(Translater.SingleTranslate(t));
             }
         }).start();
-    }
-    @SubscribeEvent
+    }*/
+    /*@SubscribeEvent
     public void onRenderTextBoard(RenderGameOverlayEvent.Post e) {
         if (!OPEN_TEXT) return;
         if (!e.type.equals(RenderGameOverlayEvent.ElementType.EXPERIENCE)) return;
         new TextBoard();
-    }
+    }*/
 }

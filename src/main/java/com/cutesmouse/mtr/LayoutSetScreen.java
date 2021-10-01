@@ -16,7 +16,7 @@ public class LayoutSetScreen extends GuiScreen {
     }
     private final static Color G = new Color(175, 252, 89, 255);
     private final static Color R = new Color(255, 116, 116, 255);
-    private DetectObject TextboardPosition;
+    //private DetectObject TextboardPosition;
     private int mouseX;
     private int mouseY;
     private int dx;
@@ -38,7 +38,8 @@ public class LayoutSetScreen extends GuiScreen {
                     }
                 }
             }
-            if (SELECTED instanceof DetectObject) {
+        }
+            /*if (SELECTED instanceof DetectObject) {
                 TextboardPosition.x = mouseX - dx;
                 TextboardPosition.y = mouseY - dy;
             }
@@ -56,7 +57,7 @@ public class LayoutSetScreen extends GuiScreen {
                         0,0, new Color(0, 74, 255).hashCode(), false);
                 GlStateManager.popMatrix();
             }
-        }
+        }*/
         /*for (GuiTextField text : texts) {
             text.drawTextBox();
         }*/
@@ -81,9 +82,9 @@ public class LayoutSetScreen extends GuiScreen {
         int b4_z = Config.Instance.getInt("layout","translateTextboard_z",172);
         int b5_x = Config.Instance.getInt("layout","textboard_toggle_x",350);
         int b5_z = Config.Instance.getInt("layout","textboard_toggle_z",149);
-        {
+        /*{
             this.TextboardPosition = new DetectObject(b4_x,b4_z, TextBoard.MAX_LENGTH,TextBoard.MAX_LINE*TextBoard.PER_LINE);
-        }
+        }*/
         {
             final GuiButton button = new GuiButton(10001,b1_x, b1_z, 80, 20, "\u7FFB\u8B6F\u6A21\u5F0F: " +(OPEN ? "\u958B" : "\u95DC"));
             button.packedFGColour = (OPEN ? G : R).hashCode();
@@ -126,11 +127,11 @@ public class LayoutSetScreen extends GuiScreen {
 
     @Override
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
-        if (TextboardPosition != null && TextboardPosition.isHover(mouseX,mouseY)) {
+        /*if (TextboardPosition != null && TextboardPosition.isHover(mouseX,mouseY)) {
             dx = mouseX - TextboardPosition.x;
             dy = mouseY - TextboardPosition.y;
             SELECTED = TextboardPosition;
-        }
+        }*/
         super.mouseClicked(mouseX, mouseY, mouseButton);
     }
 
@@ -156,8 +157,8 @@ public class LayoutSetScreen extends GuiScreen {
                     break;
             }
         }
-        Config.Instance.setInt("layout","translateTextboard_x",TextboardPosition.x);
-        Config.Instance.setInt("layout","translateTextboard_z",TextboardPosition.y);
+        /*Config.Instance.setInt("layout","translateTextboard_x",TextboardPosition.x);
+        Config.Instance.setInt("layout","translateTextboard_z",TextboardPosition.y);*/
     }
 
 
