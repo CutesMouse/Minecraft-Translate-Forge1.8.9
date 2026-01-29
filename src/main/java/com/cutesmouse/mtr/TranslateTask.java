@@ -62,7 +62,7 @@ public class TranslateTask {
                 wait--;
             }
             if (task.translated == null) {
-                this.translated = "連線逾時!";
+                this.translated = "\u9023\u7DDA\u903E\u6642!";
                 return;
             }
         }

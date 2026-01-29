@@ -1,6 +1,7 @@
 package com.cutesmouse.mtr;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.resources.FallbackResourceManager;
@@ -31,10 +32,11 @@ public class MTranslate {
 
     @Mod.EventHandler
     public void completeLoading(FMLLoadCompleteEvent e) {
-        TranslateRender obj = new TranslateRender();
-        Minecraft.getMinecraft().fontRendererObj = obj;
+        FontRenderer ori = Minecraft.getMinecraft().fontRendererObj;
+        TranslateRender after = new TranslateRender();
+        Minecraft.getMinecraft().fontRendererObj = after;
         ((IReloadableResourceManager) Minecraft.getMinecraft().getResourceManager())
-                .registerReloadListener(obj);
+                .registerReloadListener(after);
     }
     @Mod.EventHandler
     public void preInt(FMLPreInitializationEvent e) {
