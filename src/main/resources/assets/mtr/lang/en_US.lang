@@ -1,0 +1,15 @@
+key.mtr.main=Toggle Translation
+key.categories.mtr=Mouse's Translation Mod
+mtr.text.title=Mouse's Translation Mod
+mtr.text.option.main=Translation
+mtr.text.option.refresh=Refresh Cache
+mtr.text.option.keyurl=Google Script URL
+mtr.text.option.color.code=Color Code
+mtr.text.option.source=Source
+mtr.text.option.target=Target
+mtr.text.option.language.warming=(Language list from https://docs.cloud.google.com/translate/docs/languages?hl=en)
+mtr.text.option.language.set.source=Set Source Language
+mtr.text.option.language.set.target=Set Target Language
+mtr.text.language.auto=Auto-Detect
+mtr.text.keybinding.toggle.on=Translation Enabled
+mtr.text.keybinding.toggle.off=Translation Disabled

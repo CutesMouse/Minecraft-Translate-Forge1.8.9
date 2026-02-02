@@ -1,4 +1,4 @@
-package com.cutesmouse.mtr;
+package com.cutesmouse.mtr.utils;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

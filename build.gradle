@@ -21,7 +21,7 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "1.2"
+version = "1.3"
 group= "com.cutesmouse.mtr" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Mtr"
 
@@ -80,4 +80,8 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }

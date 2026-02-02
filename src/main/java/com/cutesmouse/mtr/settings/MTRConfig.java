@@ -1,4 +1,4 @@
-package com.cutesmouse.mtr;
+package com.cutesmouse.mtr.settings;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
@@ -6,10 +6,17 @@ import net.minecraftforge.fml.common.Loader;
 import java.io.File;
 import java.io.IOException;
 
-public class Config {
-    public static Config Instance;
+public class MTRConfig {
     private Configuration config;
-    public Config() throws IOException {
+
+    public static MTRConfig load() {
+        try {
+            return new MTRConfig();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private MTRConfig() throws IOException {
         File configFile = new File(Loader.instance().getConfigDir(),"MTranslate.yml");
         if (!configFile.exists()) {
             configFile.createNewFile();
@@ -17,8 +24,8 @@ public class Config {
         config = new Configuration(configFile);
         config.load();
     }
-    public String getString(String type, String key) {
-        return config.get(type, key, "0").getString();
+    public String getString(String type, String key, String defaultValue) {
+        return config.get(type, key, defaultValue).getString();
     }
     public int getInt(String type, String key, int def) {
         return config.get(type,key,def).getInt();

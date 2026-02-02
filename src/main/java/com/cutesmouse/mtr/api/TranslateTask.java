@@ -1,4 +1,4 @@
-package com.cutesmouse.mtr;
+package com.cutesmouse.mtr.api;
 
 public class TranslateTask {
 
@@ -14,7 +14,7 @@ public class TranslateTask {
 
     public void translate() {
         if (!needTranslate()) return;
-        Translater.queue(this);
+        Translator.queue(this);
     }
 
     public String getTranslatedText() {

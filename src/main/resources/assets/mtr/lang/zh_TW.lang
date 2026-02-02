@@ -1,0 +1,15 @@
+key.mtr.main=切換翻譯功能
+key.categories.mtr=老鼠的翻譯模組
+mtr.text.title=老鼠的翻譯模組
+mtr.text.option.main=翻譯功能
+mtr.text.option.refresh=刷新翻譯
+mtr.text.option.keyurl=Google Script 連結網址
+mtr.text.option.color.code=顏色代碼
+mtr.text.option.source=來源語言
+mtr.text.option.target=目標語言
+mtr.text.option.language.warming=(語言列表來自 https://docs.cloud.google.com/translate/docs/languages?hl=zh-tw)
+mtr.text.option.language.set.source=設定翻譯來源語言
+mtr.text.option.language.set.target=設定翻譯目標語言
+mtr.text.language.auto=自動偵測
+mtr.text.keybinding.toggle.on=已開啟翻譯功能
+mtr.text.keybinding.toggle.off=已關閉翻譯功能

@@ -1,0 +1,15 @@
+key.mtr.main=翻訳機能の切り替え
+key.categories.mtr=ネズミの翻訳モジュール
+mtr.text.title=ネズミの翻訳モジュール
+mtr.text.option.main=翻訳機能
+mtr.text.option.refresh=翻訳を更新
+mtr.text.option.keyurl=Google Script リンクURL
+mtr.text.option.color.code=カラーコード
+mtr.text.option.source=翻訳元言語
+mtr.text.option.target=翻訳先言語
+mtr.text.option.language.warming=(言語リストの参照元: https://docs.cloud.google.com/translate/docs/languages?hl=ja)
+mtr.text.option.language.set.source=翻訳元言語を設定
+mtr.text.option.language.set.target=翻訳先言語を設定
+mtr.text.language.auto=自動検出
+mtr.text.keybinding.toggle.on=翻訳機能を有効にしました
+mtr.text.keybinding.toggle.off=翻訳機能を無効にしました
